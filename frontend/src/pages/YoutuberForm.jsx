@@ -2,6 +2,8 @@ import { useState } from "react";
 import { createYoutuber } from "../api/youtuber";
 import { useNavigate } from "react-router-dom";
 import Header from "../components/Header";
+import Input from "../components/Input";
+import Button from "../components/Button";
 
 function YoutuberForm() {
   const [form, setForm] = useState({
@@ -25,30 +27,28 @@ function YoutuberForm() {
     <div className="">
       <Header title="유튜버 등록" showBack />
       <form onSubmit={handleSubmit} className="space-y-3">
-        <input
+        <Input
           name="channelTitle"
           placeholder="채널명"
           value={form.channelTitle}
           onChange={handleChange}
-          className="border p-2 w-full"
         />
-        <input
+        <Input
           name="sub"
           placeholder="구독자"
           value={form.sub}
           onChange={handleChange}
-          className="border p-2 w-full"
         />
-        <input
+        <Input
           name="videoNum"
           placeholder="영상 수"
           value={form.videoNum}
           onChange={handleChange}
-          className="border p-2 w-full"
         />
-        <button className="bg-blue-500 text-white px-4 py-2 rounded">
-          등록
-        </button>
+
+        <div className="flex justify-end">
+          <Button type="submit" label="등록" variant="primary" />
+        </div>
       </form>
     </div>
   );

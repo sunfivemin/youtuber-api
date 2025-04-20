@@ -1,16 +1,25 @@
 import { getAllYoutubers, deleteYoutuber } from "../api/youtuber";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import Header from "../components/Header";
+import { Link, useNavigate } from "react-router-dom";
 import { FaPlus } from "react-icons/fa";
+import Header from "../components/Header";
 import Button from "../components/Button";
+import YoutuberCard from "../components/YoutuberCard";
+import Loader from "../components/Loader";
 
 export default function YoutuberList() {
   const [list, setList] = useState([]);
+  const navigate = useNavigate();
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    getAllYoutubers().then((res) => setList(res.data));
+    getAllYoutubers().then((res) => {
+      setList(res.data);
+      setIsLoading(false);
+    });
   }, []);
+
+  if (isLoading) return <Loader />;
 
   const handleDelete = async (id) => {
     const shouldDelete = window.confirm("정말 삭제하시겠습니까?");
@@ -42,28 +51,12 @@ export default function YoutuberList() {
           <p>등록된 유튜버가 없습니다.</p>
         ) : (
           list.map((yt) => (
-            <div
+            <YoutuberCard
               key={yt.id}
-              className="border border-gray-300 rounded-lg p-4 shadow-sm bg-white"
-            >
-              <h2 className="text-xl font-semibold">{yt.channelTitle}</h2>
-              <p className="text-gray-600">구독자: {yt.sub}</p>
-              <p className="text-gray-600">영상 수: {yt.videoNum}</p>
-              <div className="mt-2 space-x-4">
-                <Link
-                  to={`/youtubers/${yt.id}`}
-                  className="text-sm text-blue-600 hover:underline"
-                >
-                  ✏ 수정
-                </Link>
-                <button
-                  onClick={() => handleDelete(yt.id)}
-                  className="text-sm text-red-600 hover:underline"
-                >
-                  🗑 삭제
-                </button>
-              </div>
-            </div>
+              youtuber={yt}
+              onEdit={() => navigate(`/youtubers/${yt.id}`)}
+              onDelete={() => handleDelete(yt.id)}
+            />
           ))
         )}
       </div>

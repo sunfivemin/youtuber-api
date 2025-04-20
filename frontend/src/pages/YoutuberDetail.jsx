@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { getYoutuber, updateYoutuber } from "../api/youtuber";
 import Header from "../components/Header";
+import Input from "../components/Input";
+import Button from "../components/Button";
 
 export default function YoutuberDetail() {
   const { id } = useParams();
@@ -30,34 +32,33 @@ export default function YoutuberDetail() {
   };
 
   return (
-    <div>
+    <main className="max-w-3xl mx-auto px-12 py-24">
       <Header title="유튜버 수정" showBack={true} />
       <form onSubmit={handleUpdate} className="space-y-3">
-        <input
-          type="text"
+        <Input
           name="channelTitle"
-          value={form.channelTitle || ""}
+          placeholder="채널명"
+          value={form.channelTitle}
           onChange={handleChange}
         />
-        <input
-          type="text"
+        <Input
           name="sub"
-          value={form.sub || ""}
+          placeholder="구독자"
+          value={form.sub}
           onChange={handleChange}
         />
-        <input
-          type="number"
+        <Input
           name="videoNum"
-          value={form.videoNum || ""}
+          placeholder="영상 수"
+          type="number"
+          value={form.videoNum}
           onChange={handleChange}
         />
-        <button
-          type="submit"
-          className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded"
-        >
-          수정하기
-        </button>
+
+        <div className="flex justify-end">
+          <Button type="submit" label="수정" variant="primary" />
+        </div>
       </form>
-    </div>
+    </main>
   );
 }
