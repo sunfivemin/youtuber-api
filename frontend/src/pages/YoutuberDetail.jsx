@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { getYoutuber, updateYoutuber } from "../api/youtuber";
+import Header from "../components/Header";
 
 export default function YoutuberDetail() {
   const { id } = useParams();
@@ -29,8 +30,8 @@ export default function YoutuberDetail() {
   };
 
   return (
-    <div className="p-8">
-      <h1 className="text-2xl font-bold mb-4">유튜버 정보 수정</h1>
+    <div>
+      <Header title="유튜버 수정" showBack={true} />
       <form onSubmit={handleUpdate} className="space-y-3">
         <input
           type="text"

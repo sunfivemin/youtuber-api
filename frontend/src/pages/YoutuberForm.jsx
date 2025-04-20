@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { createYoutuber } from "../api/youtuber";
 import { useNavigate } from "react-router-dom";
+import Header from "../components/Header";
 
 function YoutuberForm() {
   const [form, setForm] = useState({
@@ -21,8 +22,8 @@ function YoutuberForm() {
   };
 
   return (
-    <div className="p-4">
-      <h1 className="text-xl font-bold mb-4">유튜버 등록</h1>
+    <div className="">
+      <Header title="유튜버 등록" showBack />
       <form onSubmit={handleSubmit} className="space-y-3">
         <input
           name="channelTitle"

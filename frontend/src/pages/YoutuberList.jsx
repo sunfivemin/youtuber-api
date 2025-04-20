@@ -1,6 +1,9 @@
 import { getAllYoutubers, deleteYoutuber } from "../api/youtuber";
 import { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+import Header from "../components/Header";
+import { FaPlus } from "react-icons/fa";
+import Button from "../components/Button";
 
 export default function YoutuberList() {
   const [list, setList] = useState([]);
@@ -22,15 +25,16 @@ export default function YoutuberList() {
   };
 
   return (
-    <div className="max-w-3xl mx-auto px-4 py-10">
-      <div className="flex justify-between items-center mb-6">
-        <h1 className="text-3xl font-bold">🎥 유튜버 목록</h1>
-        <Link
-          to="/new"
-          className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md"
-        >
-          + 유튜버 등록
-        </Link>
+    <div className="">
+      <div className="flex justify-between items-center ">
+        <Header
+          title="🎥 유튜버 목록"
+          rightElement={
+            <Link to="/new">
+              <Button label=" 등록" icon={<FaPlus />} />
+            </Link>
+          }
+        />
       </div>
 
       <div className="space-y-4">
