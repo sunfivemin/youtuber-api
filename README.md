@@ -76,12 +76,12 @@ npm run storybook
 
 ## ✅ 기능 요약
 
-- [o] 유튜버 등록 (POST)
-- [o] 유튜버 전체 조회 (GET)
-- [o] 유튜버 개별 조회 (GET by ID)
-- [o] 유튜버 수정 (PUT)
-- [o] 유튜버 삭제 (DELETE)
-- [o] Storybook 기반 컴포넌트 문서화
+- [ ] 유튜버 등록 (POST)
+- [ ] 유튜버 전체 조회 (GET)
+- [ ] 유튜버 개별 조회 (GET by ID)
+- [ ] 유튜버 수정 (PUT)
+- [ ] 유튜버 삭제 (DELETE)
+- [ ] Storybook 기반 컴포넌트 문서화
 
 ---
 
