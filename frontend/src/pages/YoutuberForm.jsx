@@ -1,5 +1,5 @@
-import { useState } from "react";
 import { createYoutuber } from "../api/youtuber";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Header from "../components/Header";
 import Input from "../components/Input";
@@ -24,7 +24,7 @@ function YoutuberForm() {
   };
 
   return (
-    <div className="">
+    <main>
       <Header title="유튜버 등록" showBack />
       <form onSubmit={handleSubmit} className="space-y-3">
         <Input
@@ -50,7 +50,7 @@ function YoutuberForm() {
           <Button type="submit" label="등록" variant="primary" />
         </div>
       </form>
-    </div>
+    </main>
   );
 }
 

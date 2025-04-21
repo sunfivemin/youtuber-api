@@ -1,6 +1,6 @@
+import { getYoutuber, updateYoutuber } from "../api/youtuber";
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { getYoutuber, updateYoutuber } from "../api/youtuber";
 import Header from "../components/Header";
 import Input from "../components/Input";
 import Button from "../components/Button";
@@ -32,7 +32,7 @@ export default function YoutuberDetail() {
   };
 
   return (
-    <main className="max-w-3xl mx-auto px-12 py-24">
+    <main>
       <Header title="유튜버 수정" showBack={true} />
       <form onSubmit={handleUpdate} className="space-y-3">
         <Input

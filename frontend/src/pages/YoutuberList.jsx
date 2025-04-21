@@ -34,8 +34,8 @@ export default function YoutuberList() {
   };
 
   return (
-    <div className="">
-      <div className="flex justify-between items-center ">
+    <main>
+      <div className="flex justify-between items-center">
         <Header
           title="🎥 유튜버 목록"
           rightElement={
@@ -60,6 +60,6 @@ export default function YoutuberList() {
           ))
         )}
       </div>
-    </div>
+    </main>
   );
 }
