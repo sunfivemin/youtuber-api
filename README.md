@@ -51,7 +51,7 @@ node app.js
 
 ---
 
-### 2. 프론트엔드 실행 (Vite 기반)
+### 2. 프론트엔드 실행 
 
 ```bash
 cd frontend
@@ -91,4 +91,5 @@ npm run storybook
 
 - 실무에서 자주 사용하는 **컴포넌트 분리 방식**, **API 폴더링**, **스토리북 문서화 흐름**을 연습할 수 있습니다.
 - 블로그에 개발 과정을 정리해두었습니다.
+  
 👉 [블로그 바로가기](https://main--seonohblog.netlify.app/2.dev-log/express-&-node/express-%EA%B8%B0%EB%B0%98-%EC%9C%A0%ED%8A%9C%EB%B2%84-api-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8.html)
